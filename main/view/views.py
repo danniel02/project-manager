@@ -1,10 +1,23 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
+from django.views import generic
+from .models import project, tasks
+from django.urls import reverse
+
 
 # Create your views here.
-def index(request):
-    return render(request, "view/index.html")
+class IndexView(generic.TemplateView):
 
-def project(request, project_id):
-    #todo
-    return HttpResponse(f"WIP: returns the project page of project id: {project_id}")
+    template_name = 'view/index.html'
+
+
+
+class ProjectView(generic.DetailView):
+    model = project
+    template_name = 'view/project.html'
+
+class TaskView(generic.DetailView):
+    model = tasks
+    template_name = 'view/tasks.html'
+
+    

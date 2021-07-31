@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
+
+
 class project(models.Model):
     project_name = models.CharField(max_length = 64)
     project_desc = models.TextField(max_length=500, blank=True)
@@ -11,6 +14,7 @@ class project(models.Model):
         return self.project_name
 
 class tasks(models.Model):
+    task_project = models.ForeignKey(project, on_delete=models.CASCADE)
     task_id = models.BigAutoField(primary_key=True)
     task_name = models.CharField(max_length=64)
     task_desc = models.TextField(max_length=500)

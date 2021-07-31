@@ -6,5 +6,9 @@
 {% block body %}
 
 <h1> Test Sample</h1>
-
+<ul>
+    {% for project in project.all %}
+    <li>{{project.project_name}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

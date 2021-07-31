@@ -1,0 +1,10 @@
+{% extends 'view/layout.html' %}
+{% load static %}
+
+{% block body %}
+<h1>
+    this is task {{tasks.task_name}} from project {{tasks.task_project}}
+</h1>
+
+<a href="{% url 'view:project' %}">back to project</a>
+{% endblock %}

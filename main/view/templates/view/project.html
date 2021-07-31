@@ -1,0 +1,15 @@
+{% extends 'view/layout.html' %}
+{% load static %}
+
+{% block body %}
+<h1>
+    this is project {{project.project_name}}, this project has the id {{project.pk}}
+</h1>
+<p>hi</p>
+<ul>
+    {% for tasks in project.project.all %}
+    <li>{{tasks.task_name}}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'view:index' %}">back to home</a>
+{% endblock %}
